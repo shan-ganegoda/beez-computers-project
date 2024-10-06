@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
+const sendEmail = require('./emailService');
 
 const app = express();
 app.use(cors());
@@ -95,6 +96,7 @@ app.post('/api/signup', async (req, res) => {
     }
     const newUser = new User(req.body);
     await newUser.save();
+    sendEmail(email, 'Welcome to Beez', 'Thank you for join with us..Stay strong!');
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error registering user' });
@@ -157,7 +159,7 @@ app.delete('/api/admin/contacts/:id', async (req, res) => {
 // Appointment booking endpoint with 10 appointments per day limit
 app.post('/api/appointment', async (req, res) => {
   try {
-    const { appointmentDate } = req.body;
+    const { appointmentDate,email } = req.body;   
 
     const startOfDay = new Date(appointmentDate);
     startOfDay.setHours(0, 0, 0, 0);
@@ -174,6 +176,7 @@ app.post('/api/appointment', async (req, res) => {
 
     const newAppointment = new Appointment(req.body);
     await newAppointment.save();
+    sendEmail(email, 'Booking Appointment',"Beez",'<h1>Your Booking Details</h1><h4>Thank you for make a booking with us..</h4><br> Your Booking Date : '+startOfDay + '<br><br><p>Beez Team<p>' );
     res.status(201).json({ message: 'Appointment booked successfully. Please come on that day.' });
   } catch (error) {
     res.status(500).json({ error: 'Error booking appointment' });
