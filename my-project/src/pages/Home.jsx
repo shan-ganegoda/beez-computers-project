@@ -126,7 +126,7 @@ const handleReadMoreClick = () => {
             />
             <div className="overlay"></div>
             <div className="carousel-item-content carousel-caption d-none d-md-block"style={{ textAlign: 'left' }}>
-              <h5 style={{ fontSize: '34px' }}>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm </h5>
+              <h5 style={{ fontSize: '34px' }}>We Repair your Laptops</h5>
                
                <button
                    onClick={handleReadMoreClick}
@@ -150,7 +150,7 @@ const handleReadMoreClick = () => {
       )}
             </div>
           </div>
-          <div className="carousel-item active ">
+          <div className="carousel-item">
             <img
               src="https://i.postimg.cc/sfZVWsNg/istockphoto-1499410369-1024x1024.jpg"
               className="d-block w-100"
@@ -159,7 +159,7 @@ const handleReadMoreClick = () => {
             />
             <div className="overlay"></div>
             <div className="carousel-item-content carousel-caption d-none d-md-block"style={{ textAlign: 'left' }}>
-              <h5 style={{ fontSize: '34px' }}>Ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</h5>
+              <h5 style={{ fontSize: '34px' }}>Computers</h5>
               <button
                    onClick={handleReadMoreClick}
                   style={{
@@ -181,7 +181,7 @@ const handleReadMoreClick = () => {
       )}
             </div>
           </div>
-          <div className="carousel-item active ">
+          <div className="carousel-item">
             <img
               src="https://i.postimg.cc/CMjxtwH6/R.jpg"
               className="d-block w-100"
@@ -190,7 +190,7 @@ const handleReadMoreClick = () => {
             />
             <div className="overlay"></div>
             <div className="carousel-item-content carousel-caption d-none d-md-block"style={{ textAlign: 'left' }}>
-              <h5 style={{ fontSize: '34px' }}>ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</h5>
+              <h5 style={{ fontSize: '34px' }}>Machines</h5>
               <button
                    onClick={handleReadMoreClick}
                   style={{
@@ -250,7 +250,6 @@ const handleReadMoreClick = () => {
                   width: '100%',
                   height: '300px',
                   objectFit: 'cover',
-                  borderRadius:'20px',
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = 'scale(1.1)';
@@ -260,7 +259,7 @@ const handleReadMoreClick = () => {
                 }}
               />
             </div>
-            <Card.Body className="bg-dark text-white"style={{ borderRadius: '10px' }}>
+            <Card.Body className="bg-dark text-white rounded-b-md">
               <Card.Title>LAPTOP REPAIR</Card.Title>
             </Card.Body>
           </Card>
@@ -280,7 +279,6 @@ const handleReadMoreClick = () => {
                   width: '100%',
                   height: '300px',
                   objectFit: 'cover',
-                  borderRadius:'20px',
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = 'scale(1.1)';
@@ -290,7 +288,7 @@ const handleReadMoreClick = () => {
                 }}
               />
             </div>
-            <Card.Body className="bg-dark text-white"style={{ borderRadius: '10px' }}>
+            <Card.Body className="bg-dark text-white rounded-b-md">
               <Card.Title>DESKTOP REPAIR</Card.Title>
             </Card.Body>
           </Card>
@@ -310,7 +308,6 @@ const handleReadMoreClick = () => {
                   width: '100%',
                   height: '300px',
                   objectFit: 'cover',
-                  borderRadius:'20px',
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = 'scale(1.1)';
@@ -320,7 +317,7 @@ const handleReadMoreClick = () => {
                 }}
               />
             </div>
-            <Card.Body className="bg-dark text-white "style={{ borderRadius: '10px' }}>
+            <Card.Body className="bg-dark text-white rounded-b-md">
               <Card.Title>SOFTWARE REPAIR</Card.Title>
             </Card.Body>
           </Card>
@@ -340,7 +337,6 @@ const handleReadMoreClick = () => {
                   width: '100%',
                   height: '300px',
                   objectFit: 'cover',
-                  borderRadius:'20px',
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = 'scale(1.2)';
@@ -350,7 +346,7 @@ const handleReadMoreClick = () => {
                 }}
               />
             </div>
-            <Card.Body className="bg-dark text-white"style={{ borderRadius: '10px' }}>
+            <Card.Body className="bg-dark text-white rounded-b-md">
               <Card.Title>ONLINE STORE</Card.Title>
             </Card.Body>
           </Card>
