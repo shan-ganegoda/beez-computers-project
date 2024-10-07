@@ -211,12 +211,68 @@ app.delete('/api/admin/appointments/:id', async (req, res) => {
 app.post('/api/order', async (req, res) => {
   try {
     const newOrder = new Order(req.body);
+    const {cart,shippingAddress,shippingMethod,total,createdAt, subTotal, shippingFee} = newOrder;
+    const {email} = shippingAddress;
+        
     await newOrder.save();
+
+    const htmlContent = generateOrderEmail(cart, shippingAddress, shippingMethod, total, createdAt, subTotal, shippingFee);
+
+    sendEmail(email, 'Beez Order', 'Thank you for buying from us..',htmlContent
+    );
+    
     res.status(201).json({ message: 'Order placed successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error placing order' });
   }
 });
+
+function generateOrderEmail(cart, shippingAddress, shippingMethod, total, createdAt, subTotal, shippingFee) {
+  const cartItems = cart.map(item => `
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;">${item.name}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${item.quantity}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${item.price}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">${item.price * item.quantity}</td>
+    </tr>
+  `).join('');
+
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee;">
+      <h2 style="text-align: center;">Thank you for your order!</h2>
+      <p style="font-size: 16px;">Order Date: ${new Date(createdAt).toLocaleString()}</p>
+
+      <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 10px;">Order Summary</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+        <thead>
+          <tr>
+            <th style="padding: 10px; border: 1px solid #ddd;">Product</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Quantity</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${cartItems}
+        </tbody>
+      </table>
+
+      <p style="font-size: 16px;"><strong>Subtotal:</strong> Rs. ${subTotal}</p>
+      <p style="font-size: 16px;"><strong>Shipping Fee:</strong> Rs. ${shippingFee}</p>
+      <p style="font-size: 18px;"><strong>Total:</strong> Rs. ${total}</p>
+
+      <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 10px;">Shipping Information</h3>
+      <p style="font-size: 16px;">
+        <strong>Name:</strong> ${shippingAddress.firstName} ${shippingAddress.lastName}<br/>
+        <strong>Phone:</strong> ${shippingAddress.phone}<br/>
+        <strong>Email:</strong> ${shippingAddress.email}<br/>
+        <strong>Address:</strong> ${shippingAddress.address}, ${shippingAddress.city}, ${shippingAddress.state}, ${shippingAddress.zip}<br/>
+        <strong>Shipping Method:</strong> ${shippingMethod}
+      </p>
+    </div>
+  `;
+}
+
 
 // Fetch all orders for admin
 app.get('/api/admin/orders', async (req, res) => {
