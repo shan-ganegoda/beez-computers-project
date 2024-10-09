@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const ProfilePage = () => {
   // Fetching user data from localStorage (with a default value for the demo)
@@ -10,7 +11,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center">
       <div className="max-w-2xl w-full mx-4 p-8 bg-gray-800 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">Profile</h1>
         {user ? (
@@ -30,6 +31,11 @@ const ProfilePage = () => {
           <p>No user details available.</p>
         )}
       </div>
+
+      <div className="flex mt-4">
+        <Link to="/" ><span className="mt-3 px-4 py-2 bg-white text-black rounded-2xl font-bold hover:text-blue-600">Go Back</span></Link>
+      </div>
+
     </div>
   );
 };

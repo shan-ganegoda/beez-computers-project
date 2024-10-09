@@ -100,7 +100,7 @@ const Contactus = () => {
         </p>
         <Row className="justify-content-center">
           <Col lg={7} md={12} className="p-4" style={{ backgroundColor: '#CBE4DE', borderTopLeftRadius: '20px', borderBottomLeftRadius: '20px', textAlign: 'left' }}>
-            <h3 className="mb-4" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+            <h3 className="mb-4 font-bold text-lg" >
               CONTACT US FORM
             </h3>
             <Form onSubmit={handleSubmit}>
@@ -178,16 +178,16 @@ const Contactus = () => {
             </Form>
           </Col>
           
-          <Col lg={4} md={12} className="p-4" style={{ backgroundColor: '#2C3333',borderBottomRightRadius:'20px',borderTopRightRadius: '20px', color: '#ffffff' }}>
-            <h4 className="mb-4" style={{ fontWeight: 'bold' }}>ADDRESS</h4>
-            <p>No: 03,Times Building,<br />  Sir Razik Fareed Mawatha, Colombo, Sri Lanka</p>
-            <hr style={{ backgroundColor: '#ffffff' }} />
-            <h4 className="mb-4" style={{ fontWeight: 'bold', fontSize: 15 }}>HOT LINE</h4>
+          <Col lg={4} md={12} className="p-4 bg-[#2C3333] rounded-br-[20px] rounded-tr-[20px] text-white">
+            <h4 className="mb-2" style={{ fontWeight: 'bold' }}>ADDRESS</h4>
+            <p>No: 03,<br/>Times Building,<br/> Sir Razik Fareed Mawatha,<br/> Colombo, Sri Lanka</p>
+            <hr className="mt-3" style={{ backgroundColor: '#ffffff' }} />
+            <h4 className="mb-2 mt-2" style={{ fontWeight: 'bold', fontSize: 15 }}>HOT LINE</h4>
             <p>071-5386140<br />078-2354765</p>
-            <hr style={{ backgroundColor: '#ffffff' }} />
-            <h4 className="mb-4" style={{ fontWeight: 'bold', fontSize: 15 }}>E - MAIL</h4>
+            <hr className="mt-3" style={{ backgroundColor: '#ffffff' }} />
+            <h4 className="mb-2 mt-2" style={{ fontWeight: 'bold', fontSize: 15 }}>E - MAIL</h4>
             <p>beezcomputers@gmail.com</p>
-            <hr style={{ backgroundColor: '#ffffff' }} />
+            <hr className="mt-3" style={{ backgroundColor: '#ffffff' }} />
           </Col>
         </Row>
       </Container>
