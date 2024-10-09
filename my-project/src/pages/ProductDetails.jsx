@@ -269,11 +269,16 @@ const ProductDetails = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative overflow-hidden rounded-lg bg-gray-100">
               <div className="relative">
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className={`max-w-full max-h-[500px] object-contain transition-transform ${isAnimating ? 'animate-pulse' : ''}`}
-                />
+                <div className="w-full h-full flex items-center justify-center">
+
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className={`max-w-full max-h-[500px] object-contain transition-transform ${isAnimating ? 'animate-pulse' : ''}`}
+                  />
+
+                </div>
+               
                 <div className={`absolute top-0 right-0 p-4 transition-transform ${isAnimating ? 'animate-pulse' : ''}`}>
                   <button
                     type="button"

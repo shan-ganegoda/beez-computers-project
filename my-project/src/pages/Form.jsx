@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../pages/Navbar';
 import Footer from './Footer';
+
+
 const Form = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
@@ -68,7 +70,7 @@ const Form = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-[100vw] h-[100vh]">
       
       <Navbar currentPath="/"  /> 
 
@@ -134,15 +136,19 @@ const Form = () => {
             />
           </div>
           <button
-  type="submit"
-  className="w-full bg-gray-700 text-white px-3 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-200"
->
-  Book Appointment
-</button>
+            type="submit"
+            className="w-full bg-gray-700 text-white px-3 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-200"
+          >
+          Book Appointment
+          </button>
         </form>
       </div>
 
-      <Footer/>
+      <div className="w-[100vw] h-auto absolute bottom-0">
+        <Footer/>
+      </div>
+
+      
     </div>
   );
 };
