@@ -144,7 +144,7 @@ const Form = () => {
         </form>
       </div>
 
-      <div className="w-[100vw] h-auto absolute bottom-0">
+      <div className="w-[100vw] h-auto">
         <Footer/>
       </div>
 

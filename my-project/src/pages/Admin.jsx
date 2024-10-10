@@ -15,6 +15,7 @@ const Admin = () => {
   const cardStyle = {
     backgroundColor: '#f9f9f9',
     borderRadius: '15px',
+    height: '10rem',
     border: '1px solid #ddd',
     transition: 'transform 0.2s ease-in-out',
     cursor: 'pointer',
